@@ -27,6 +27,15 @@ function extractText(node: React.ReactNode): string {
 
 let _debugLogged = false;
 
+function getThemeClass(): 'growi-shp-light' | 'growi-shp-dark' {
+  const bsTheme = document.documentElement.getAttribute('data-bs-theme');
+  if (bsTheme === 'dark') return 'growi-shp-dark';
+  if (bsTheme === 'light') return 'growi-shp-light';
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches
+    ? 'growi-shp-dark'
+    : 'growi-shp-light';
+}
+
 function HighlightedCode({ node: _node, inline, className, children, ...props }: CodeProps): React.ReactElement {
   if (!_debugLogged) {
     console.log(`${LOG_PREFIX} HighlightedCode rendered (first call)`, { inline, className, childrenType: typeof children });
@@ -44,9 +53,9 @@ function HighlightedCode({ node: _node, inline, className, children, ...props }:
     return <code className={classNameStr || undefined} {...props}>{children}</code>;
   }
 
-  // className="language-xxx" から言語名を抽出
+  // "language-html:test.html" → "html" (GROWI の :filename 付き記法に対応)
   const langMatch = /language-([\w+#.-]+)/.exec(classNameStr);
-  const rawLang = langMatch?.[1] ?? '';
+  const rawLang = (langMatch?.[1] ?? '').split(':')[0].split('+')[0];
   const lang = resolveLanguage(rawLang);
 
   let highlighted: string;
@@ -69,8 +78,10 @@ function HighlightedCode({ node: _node, inline, className, children, ...props }:
     lines.pop();
   }
 
+  const themeClass = getThemeClass();
+
   return (
-    <div className="growi-shp">
+    <div className={`growi-shp ${themeClass}`}>
       {resolvedLang && resolvedLang !== 'plaintext' && (
         <div className="growi-shp__header">
           <span className="growi-shp__lang">{resolvedLang}</span>

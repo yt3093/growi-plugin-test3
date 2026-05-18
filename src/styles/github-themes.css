@@ -1,157 +1,157 @@
 /* highlight.js GitHub Light theme — scoped to .growi-shp-light */
-body.growi-shp-light .hljs {
+.growi-shp.growi-shp-light .hljs {
   color: #24292e;
   background: #f6f8fa;
 }
-body.growi-shp-light .hljs-doctag,
-body.growi-shp-light .hljs-keyword,
-body.growi-shp-light .hljs-meta .hljs-keyword,
-body.growi-shp-light .hljs-template-tag,
-body.growi-shp-light .hljs-template-variable,
-body.growi-shp-light .hljs-type,
-body.growi-shp-light .hljs-variable.language_ {
+.growi-shp.growi-shp-light .hljs-doctag,
+.growi-shp.growi-shp-light .hljs-keyword,
+.growi-shp.growi-shp-light .hljs-meta .hljs-keyword,
+.growi-shp.growi-shp-light .hljs-template-tag,
+.growi-shp.growi-shp-light .hljs-template-variable,
+.growi-shp.growi-shp-light .hljs-type,
+.growi-shp.growi-shp-light .hljs-variable.language_ {
   color: #d73a49;
 }
-body.growi-shp-light .hljs-title,
-body.growi-shp-light .hljs-title.class_,
-body.growi-shp-light .hljs-title.class_.inherited__,
-body.growi-shp-light .hljs-title.function_ {
+.growi-shp.growi-shp-light .hljs-title,
+.growi-shp.growi-shp-light .hljs-title.class_,
+.growi-shp.growi-shp-light .hljs-title.class_.inherited__,
+.growi-shp.growi-shp-light .hljs-title.function_ {
   color: #6f42c1;
 }
-body.growi-shp-light .hljs-attr,
-body.growi-shp-light .hljs-attribute,
-body.growi-shp-light .hljs-literal,
-body.growi-shp-light .hljs-meta,
-body.growi-shp-light .hljs-number,
-body.growi-shp-light .hljs-operator,
-body.growi-shp-light .hljs-variable,
-body.growi-shp-light .hljs-selector-attr,
-body.growi-shp-light .hljs-selector-class,
-body.growi-shp-light .hljs-selector-id {
+.growi-shp.growi-shp-light .hljs-attr,
+.growi-shp.growi-shp-light .hljs-attribute,
+.growi-shp.growi-shp-light .hljs-literal,
+.growi-shp.growi-shp-light .hljs-meta,
+.growi-shp.growi-shp-light .hljs-number,
+.growi-shp.growi-shp-light .hljs-operator,
+.growi-shp.growi-shp-light .hljs-variable,
+.growi-shp.growi-shp-light .hljs-selector-attr,
+.growi-shp.growi-shp-light .hljs-selector-class,
+.growi-shp.growi-shp-light .hljs-selector-id {
   color: #005cc5;
 }
-body.growi-shp-light .hljs-regexp,
-body.growi-shp-light .hljs-string,
-body.growi-shp-light .hljs-meta .hljs-string {
+.growi-shp.growi-shp-light .hljs-regexp,
+.growi-shp.growi-shp-light .hljs-string,
+.growi-shp.growi-shp-light .hljs-meta .hljs-string {
   color: #032f62;
 }
-body.growi-shp-light .hljs-built_in,
-body.growi-shp-light .hljs-symbol {
+.growi-shp.growi-shp-light .hljs-built_in,
+.growi-shp.growi-shp-light .hljs-symbol {
   color: #e36209;
 }
-body.growi-shp-light .hljs-comment,
-body.growi-shp-light .hljs-code,
-body.growi-shp-light .hljs-formula {
+.growi-shp.growi-shp-light .hljs-comment,
+.growi-shp.growi-shp-light .hljs-code,
+.growi-shp.growi-shp-light .hljs-formula {
   color: #6a737d;
 }
-body.growi-shp-light .hljs-name,
-body.growi-shp-light .hljs-quote,
-body.growi-shp-light .hljs-selector-tag,
-body.growi-shp-light .hljs-selector-pseudo {
+.growi-shp.growi-shp-light .hljs-name,
+.growi-shp.growi-shp-light .hljs-quote,
+.growi-shp.growi-shp-light .hljs-selector-tag,
+.growi-shp.growi-shp-light .hljs-selector-pseudo {
   color: #22863a;
 }
-body.growi-shp-light .hljs-subst {
+.growi-shp.growi-shp-light .hljs-subst {
   color: #24292e;
 }
-body.growi-shp-light .hljs-section {
+.growi-shp.growi-shp-light .hljs-section {
   color: #005cc5;
   font-weight: bold;
 }
-body.growi-shp-light .hljs-bullet {
+.growi-shp.growi-shp-light .hljs-bullet {
   color: #735c0f;
 }
-body.growi-shp-light .hljs-emphasis {
+.growi-shp.growi-shp-light .hljs-emphasis {
   color: #24292e;
   font-style: italic;
 }
-body.growi-shp-light .hljs-strong {
+.growi-shp.growi-shp-light .hljs-strong {
   color: #24292e;
   font-weight: bold;
 }
-body.growi-shp-light .hljs-addition {
+.growi-shp.growi-shp-light .hljs-addition {
   color: #22863a;
   background-color: #f0fff4;
 }
-body.growi-shp-light .hljs-deletion {
+.growi-shp.growi-shp-light .hljs-deletion {
   color: #b31d28;
   background-color: #ffeef0;
 }
 
 /* highlight.js GitHub Dark theme — scoped to .growi-shp-dark */
-body.growi-shp-dark .hljs {
+.growi-shp.growi-shp-dark .hljs {
   color: #c9d1d9;
   background: #161b22;
 }
-body.growi-shp-dark .hljs-doctag,
-body.growi-shp-dark .hljs-keyword,
-body.growi-shp-dark .hljs-meta .hljs-keyword,
-body.growi-shp-dark .hljs-template-tag,
-body.growi-shp-dark .hljs-template-variable,
-body.growi-shp-dark .hljs-type,
-body.growi-shp-dark .hljs-variable.language_ {
+.growi-shp.growi-shp-dark .hljs-doctag,
+.growi-shp.growi-shp-dark .hljs-keyword,
+.growi-shp.growi-shp-dark .hljs-meta .hljs-keyword,
+.growi-shp.growi-shp-dark .hljs-template-tag,
+.growi-shp.growi-shp-dark .hljs-template-variable,
+.growi-shp.growi-shp-dark .hljs-type,
+.growi-shp.growi-shp-dark .hljs-variable.language_ {
   color: #ff7b72;
 }
-body.growi-shp-dark .hljs-title,
-body.growi-shp-dark .hljs-title.class_,
-body.growi-shp-dark .hljs-title.class_.inherited__,
-body.growi-shp-dark .hljs-title.function_ {
+.growi-shp.growi-shp-dark .hljs-title,
+.growi-shp.growi-shp-dark .hljs-title.class_,
+.growi-shp.growi-shp-dark .hljs-title.class_.inherited__,
+.growi-shp.growi-shp-dark .hljs-title.function_ {
   color: #d2a8ff;
 }
-body.growi-shp-dark .hljs-attr,
-body.growi-shp-dark .hljs-attribute,
-body.growi-shp-dark .hljs-literal,
-body.growi-shp-dark .hljs-meta,
-body.growi-shp-dark .hljs-number,
-body.growi-shp-dark .hljs-operator,
-body.growi-shp-dark .hljs-variable,
-body.growi-shp-dark .hljs-selector-attr,
-body.growi-shp-dark .hljs-selector-class,
-body.growi-shp-dark .hljs-selector-id {
+.growi-shp.growi-shp-dark .hljs-attr,
+.growi-shp.growi-shp-dark .hljs-attribute,
+.growi-shp.growi-shp-dark .hljs-literal,
+.growi-shp.growi-shp-dark .hljs-meta,
+.growi-shp.growi-shp-dark .hljs-number,
+.growi-shp.growi-shp-dark .hljs-operator,
+.growi-shp.growi-shp-dark .hljs-variable,
+.growi-shp.growi-shp-dark .hljs-selector-attr,
+.growi-shp.growi-shp-dark .hljs-selector-class,
+.growi-shp.growi-shp-dark .hljs-selector-id {
   color: #79c0ff;
 }
-body.growi-shp-dark .hljs-regexp,
-body.growi-shp-dark .hljs-string,
-body.growi-shp-dark .hljs-meta .hljs-string {
+.growi-shp.growi-shp-dark .hljs-regexp,
+.growi-shp.growi-shp-dark .hljs-string,
+.growi-shp.growi-shp-dark .hljs-meta .hljs-string {
   color: #a5d6ff;
 }
-body.growi-shp-dark .hljs-built_in,
-body.growi-shp-dark .hljs-symbol {
+.growi-shp.growi-shp-dark .hljs-built_in,
+.growi-shp.growi-shp-dark .hljs-symbol {
   color: #ffa657;
 }
-body.growi-shp-dark .hljs-comment,
-body.growi-shp-dark .hljs-code,
-body.growi-shp-dark .hljs-formula {
+.growi-shp.growi-shp-dark .hljs-comment,
+.growi-shp.growi-shp-dark .hljs-code,
+.growi-shp.growi-shp-dark .hljs-formula {
   color: #8b949e;
 }
-body.growi-shp-dark .hljs-name,
-body.growi-shp-dark .hljs-quote,
-body.growi-shp-dark .hljs-selector-tag,
-body.growi-shp-dark .hljs-selector-pseudo {
+.growi-shp.growi-shp-dark .hljs-name,
+.growi-shp.growi-shp-dark .hljs-quote,
+.growi-shp.growi-shp-dark .hljs-selector-tag,
+.growi-shp.growi-shp-dark .hljs-selector-pseudo {
   color: #7ee787;
 }
-body.growi-shp-dark .hljs-subst {
+.growi-shp.growi-shp-dark .hljs-subst {
   color: #c9d1d9;
 }
-body.growi-shp-dark .hljs-section {
+.growi-shp.growi-shp-dark .hljs-section {
   color: #1f6feb;
   font-weight: bold;
 }
-body.growi-shp-dark .hljs-bullet {
+.growi-shp.growi-shp-dark .hljs-bullet {
   color: #f2cc60;
 }
-body.growi-shp-dark .hljs-emphasis {
+.growi-shp.growi-shp-dark .hljs-emphasis {
   color: #c9d1d9;
   font-style: italic;
 }
-body.growi-shp-dark .hljs-strong {
+.growi-shp.growi-shp-dark .hljs-strong {
   color: #c9d1d9;
   font-weight: bold;
 }
-body.growi-shp-dark .hljs-addition {
+.growi-shp.growi-shp-dark .hljs-addition {
   color: #aff5b4;
   background-color: #033a16;
 }
-body.growi-shp-dark .hljs-deletion {
+.growi-shp.growi-shp-dark .hljs-deletion {
   color: #ffdcd7;
   background-color: #67060c;
 }
