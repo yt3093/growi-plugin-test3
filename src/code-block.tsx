@@ -3,6 +3,8 @@ import hljs from './highlight';
 import { resolveLanguage } from './language-aliases';
 import type { RendererOptions } from './types';
 
+const LOG_PREFIX = '[codesyntaxhighlight]';
+
 interface CodeProps {
   node?: unknown;
   inline?: boolean;
@@ -11,8 +13,20 @@ interface CodeProps {
   [key: string]: unknown;
 }
 
+function extractText(node: React.ReactNode): string {
+  if (node == null || node === false || node === true) return '';
+  if (typeof node === 'string') return node;
+  if (typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(extractText).join('');
+  if (React.isValidElement(node)) {
+    const children = (node.props as { children?: React.ReactNode } | null)?.children;
+    return extractText(children);
+  }
+  return '';
+}
+
 function HighlightedCode({ node: _node, inline, className, children, ...props }: CodeProps): React.ReactElement {
-  const rawCode = String(children ?? '').replace(/\n$/, '');
+  const rawCode = extractText(children).replace(/\n$/, '');
 
   // インラインコード判定: inline prop が true、または言語指定なしで改行なし
   const isInline = inline === true || (!className && !rawCode.includes('\n'));
@@ -74,10 +88,11 @@ function HighlightedCode({ node: _node, inline, className, children, ...props }:
 type OptionsGenerator = (...args: unknown[]) => RendererOptions;
 
 let originalGenerator: OptionsGenerator | undefined;
+let retryTimer: ReturnType<typeof setTimeout> | null = null;
 
-export function activate(): void {
+function installHook(): boolean {
   const facade = window.growiFacade;
-  if (facade?.markdownRenderer == null) return;
+  if (facade?.markdownRenderer == null) return false;
 
   const { optionsGenerators } = facade.markdownRenderer;
   originalGenerator = optionsGenerators.customGenerateViewOptions;
@@ -95,12 +110,41 @@ export function activate(): void {
       },
     };
   };
+
+  console.log(`${LOG_PREFIX} hook installed`);
+  return true;
+}
+
+export function activate(): void {
+  console.log(`${LOG_PREFIX} activate called`, {
+    hasFacade: !!window.growiFacade,
+    hasRenderer: !!window.growiFacade?.markdownRenderer,
+  });
+
+  if (installHook()) return;
+
+  // markdownRenderer がまだ準備できていない場合にリトライ
+  let attempts = 0;
+  retryTimer = setInterval(() => {
+    attempts++;
+    if (installHook() || attempts >= 20) {
+      if (retryTimer != null) clearInterval(retryTimer);
+      retryTimer = null;
+      if (attempts >= 20) console.warn(`${LOG_PREFIX} markdownRenderer not found after retries`);
+    }
+  }, 200);
 }
 
 export function deactivate(): void {
+  if (retryTimer != null) {
+    clearInterval(retryTimer);
+    retryTimer = null;
+  }
+
   const facade = window.growiFacade;
   if (facade?.markdownRenderer == null) return;
 
   facade.markdownRenderer.optionsGenerators.customGenerateViewOptions = originalGenerator;
   originalGenerator = undefined;
+  console.log(`${LOG_PREFIX} deactivated`);
 }

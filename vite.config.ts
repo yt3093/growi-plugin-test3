@@ -7,15 +7,9 @@ export default defineConfig({
     manifest: 'manifest.json',
     rollupOptions: {
       input: ['/client-entry.tsx'],
-      // React は GROWI 本体に同梱されているため二重ロードを防ぐ
-      external: ['react', 'react/jsx-runtime', 'react-dom'],
-      output: {
-        globals: {
-          react: 'React',
-          'react/jsx-runtime': 'ReactJSXRuntime',
-          'react-dom': 'ReactDOM',
-        },
-      },
+      // React は GROWI 環境で外部解決が保証されないためバンドルに同梱。
+      // 本プラグインは Hooks を使わない関数コンポーネントのみなので
+      // 二重 React インスタンスによる副作用は最小限。
     },
   },
 });
