@@ -25,17 +25,27 @@ function extractText(node: React.ReactNode): string {
   return '';
 }
 
+let _debugLogged = false;
+
 function HighlightedCode({ node: _node, inline, className, children, ...props }: CodeProps): React.ReactElement {
+  if (!_debugLogged) {
+    console.log(`${LOG_PREFIX} HighlightedCode rendered (first call)`, { inline, className, childrenType: typeof children });
+    _debugLogged = true;
+  }
+
   const rawCode = extractText(children).replace(/\n$/, '');
 
+  // rehype-react では className が string[] で渡される場合がある
+  const classNameStr = Array.isArray(className) ? className.join(' ') : (className ?? '');
+
   // インラインコード判定: inline prop が true、または言語指定なしで改行なし
-  const isInline = inline === true || (!className && !rawCode.includes('\n'));
+  const isInline = inline === true || (!classNameStr && !rawCode.includes('\n'));
   if (isInline) {
-    return <code className={className} {...props}>{children}</code>;
+    return <code className={classNameStr || undefined} {...props}>{children}</code>;
   }
 
   // className="language-xxx" から言語名を抽出
-  const langMatch = /language-([\w+#.-]+)/.exec(className ?? '');
+  const langMatch = /language-([\w+#.-]+)/.exec(classNameStr);
   const rawLang = langMatch?.[1] ?? '';
   const lang = resolveLanguage(rawLang);
 
@@ -95,12 +105,20 @@ function installHook(): boolean {
   if (facade?.markdownRenderer == null) return false;
 
   const { optionsGenerators } = facade.markdownRenderer;
+  console.log(`${LOG_PREFIX} installHook`, {
+    hasGenerators: !!optionsGenerators,
+    hasGenerate: typeof optionsGenerators?.generateViewOptions,
+    hasCustom: typeof optionsGenerators?.customGenerateViewOptions,
+  });
+
   originalGenerator = optionsGenerators.customGenerateViewOptions;
 
   optionsGenerators.customGenerateViewOptions = (...args: unknown[]): RendererOptions => {
     const options = originalGenerator
       ? originalGenerator(...args)
       : optionsGenerators.generateViewOptions(...args);
+
+    console.log(`${LOG_PREFIX} customGenerateViewOptions called, existing components keys:`, Object.keys((options.components as object | undefined) ?? {}));
 
     return {
       ...options,
