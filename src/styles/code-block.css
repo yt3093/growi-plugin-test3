@@ -1,0 +1,69 @@
+.growi-shp {
+  position: relative;
+  margin: 1em 0;
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 0.875em;
+}
+
+.growi-shp__header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 4px 12px;
+  background-color: rgba(128, 128, 128, 0.15);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.growi-shp__lang {
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
+  font-size: 0.75em;
+  color: inherit;
+  opacity: 0.7;
+}
+
+.growi-shp__pre {
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  border-radius: 0;
+}
+
+.growi-shp__pre code {
+  display: block;
+  padding: 0;
+  background: transparent;
+}
+
+.growi-shp__lines {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 100%;
+}
+
+.growi-shp__lineno {
+  width: 1%;
+  min-width: 2.5em;
+  padding: 0 12px 0 16px;
+  text-align: right;
+  vertical-align: top;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
+  font-size: inherit;
+  line-height: 1.6;
+  white-space: nowrap;
+  opacity: 0.4;
+  user-select: none;
+  -webkit-user-select: none;
+  border-right: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.growi-shp__code {
+  padding: 0 16px;
+  vertical-align: top;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
+  font-size: inherit;
+  line-height: 1.6;
+  white-space: pre;
+  word-break: normal;
+  overflow-wrap: normal;
+}
